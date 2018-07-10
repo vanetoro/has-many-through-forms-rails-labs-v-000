@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
        ids.each do |id|
          if !id.blank?
            self.categories << Category.find(id)
-           binding.pry
+           self.save
          end
        end
   end
