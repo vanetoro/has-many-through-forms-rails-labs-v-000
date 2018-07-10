@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
        end
   end
 
-  def category_attributes=(cat_attr)
+  def categories_attributes=(cat_attr)
     binding.pry
   end
 end
