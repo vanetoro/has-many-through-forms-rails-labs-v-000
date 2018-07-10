@@ -8,6 +8,7 @@
 <%= f.collection_check_boxes :category_ids, Category.all, :id, :name%>
 
 <%= f.fields_for :category_attributes, @post.categories.build do |cat|%>
+  <%binding.pry%>
   <%=cat.text_field :category%>
   <%end%>
 <%= f.submit%>
