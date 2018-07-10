@@ -1,1 +1,17 @@
+ <h1><%= @post.title %></h1>
 
+ <h3>Comments:</h3>
+<% @comments.each do |comment| %>
+  <p><%= comment.user.username %> says: <%= comment.content %> </p>
+<% end %>
+<h3>Add a comment</h3>
+
+<%= form_for @comment do |f| %>
+  User: <%= f.collection_select :user_id, User.all, :id, :username %><br>
+  <%= f.fields_for :user_attributes, @comment.build_user do |username| %>
+     <%= username.text_field :username %>
+     <% end %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :post_id, :value => @post.id %>
+  <%= f.submit %>
+<% end %>
