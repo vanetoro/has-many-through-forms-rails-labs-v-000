@@ -9,7 +9,8 @@
 
 <%= f.fields_for :category_attributes, @post.categories.build do |cat|%>
   <%binding.pry%>
-  <%=cat.text_field :category%>
+  <%=cat.text_field :name%>
   <%end%>
 <%= f.submit%>
 <%end%>
+
