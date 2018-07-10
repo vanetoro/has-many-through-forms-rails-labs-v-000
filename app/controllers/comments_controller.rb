@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    binding.pry
-    if !comment_params[:user_attributes][:username].empty?
-      comment = Comment.create(comment_params)
-    end
-    binding.pry
+    comment = Comment.create(comment_params)
     redirect_to comment.post
   end
 
