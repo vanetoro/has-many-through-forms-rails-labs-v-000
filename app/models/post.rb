@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
     cat_attr[:name].each do |cat|
       binding.pry
     !cat.empty? ? self.categories << Category.create(name: cat[:name]) : nil
+    end
   end
 
 end
