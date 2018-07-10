@@ -17,5 +17,5 @@ class Post < ActiveRecord::Base
   def categories_attributes=(cat_attr)
     !cat_attr.empty? ? self.categories << Category.create(name: cat_attr) : nil
   end
-  
+
 end
