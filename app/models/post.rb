@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   end
 
   def categories_attributes=(cat_attr)
-    cat_attr.values.each do |cat|
+    cat_attr.values.each do |category|
       binding.pry
     !cat.empty? ? self.categories << Category.create(name: cat[:name]) : nil
     end
