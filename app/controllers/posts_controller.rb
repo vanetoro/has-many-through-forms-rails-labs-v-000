@@ -16,7 +16,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    binding.pry
     redirect_to @post
   end
 
