@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :users, through: :comments
   accepts_nested_attributes_for :categories
 
-  def categories_id=(ids)
+  def category_ids=(ids)
     binding.pry
   end
 end
