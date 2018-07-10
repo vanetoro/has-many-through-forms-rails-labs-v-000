@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
+    @categories = @post.categories
   end
 
   def index
@@ -15,7 +16,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    binding.pry
     redirect_to @post
   end
 

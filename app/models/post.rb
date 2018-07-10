@@ -5,7 +5,19 @@ class Post < ActiveRecord::Base
   has_many :users, through: :comments
   accepts_nested_attributes_for :categories
 
-  def categories_attributes=(cat_attr)
-    binding.pry
+  def category_ids=(ids)
+       ids.each do |id|
+         if !id.blank?
+           self.categories << Category.find(id)
+           self.save
+         end
+       end
   end
+
+  def categories_attributes=(cat_attr)
+    cat_attr.values.each do |category|
+    !category[:name].empty? ? self.categories << Category.create(name: category[:name]) : nil
+    end
+  end
+
 end
