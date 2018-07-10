@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :categories
 
   def category_ids=(ids)
-    binding.pry
+       ids.each do |id|
+         if !id.blank?
+           self.categories << Category.find(id)
+         end
+       end
   end
 end
